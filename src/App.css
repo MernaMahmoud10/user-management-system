@@ -1,0 +1,39 @@
+.sidebarContainer {
+    background-color: #F2EAE1;
+    position: relative;
+
+    .ps-sidebar-container {
+
+
+        .SidebarHeader {
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-left: 5px solid #FEAF00;
+        }
+
+
+        .ps-menu-button {
+            padding-right: 30px;
+            padding-left: 30px;
+            justify-content: center;
+
+            &.active {
+                background-color: #FEAF00;
+                border-radius: 8px;
+            }
+
+            span.ps-menu-label, .ps-menu-icon {
+                color: #000;
+                font-weight: 500;
+                font-size: 1rem;
+            }
+        }
+
+        .logoutDiv {
+            bottom: 5px;
+            span.ps-menu-label{
+                color: red;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.bg-mustard {
+    background-color: #FFC107;
+}
+
+.text-mustard {
+    color: #FFC107;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
