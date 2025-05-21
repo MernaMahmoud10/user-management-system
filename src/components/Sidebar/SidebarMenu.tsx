@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 import { FaRegUser, FaUsers } from 'react-icons/fa';
 import { AiOutlineHome } from 'react-icons/ai';
 import { ImProfile } from 'react-icons/im';
-import personalImg from "../../assets/personalImg.png"
 import { LuLogOut } from 'react-icons/lu';
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight } from 'react-icons/md';
+import personalImg from "../../assets/personalImg.png"
 
 export default function SidebarMenu() {
     const [SidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -19,10 +19,10 @@ export default function SidebarMenu() {
             <Sidebar collapsed={SidebarCollapsed} className='h-100'>
                 <div className='d-flex justify-content-between align-items-center ms-4 mt-3 mb-5'>
                     {SidebarCollapsed ? "" :
-                        <h1 className='SidebarHeader ms-2 ps-3'>UMS</h1>
+                        <h1 className='SidebarHeader pt-1 ps-3 mb-0'>UMS</h1>
 
                     }
-                    <div className='mb-2 me-3 cursor-pointer' onClick={toggleSidebar}>
+                    <div className=' me-3 cursor-pointer' onClick={toggleSidebar}>
                         {SidebarCollapsed ? <MdKeyboardDoubleArrowRight size={25} /> : <MdKeyboardDoubleArrowLeft size={25} />}
 
                     </div>
