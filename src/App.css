@@ -2,6 +2,7 @@
     background-color: #F2EAE1;
     position: relative;
 
+
     .ps-sidebar-container {
 
 
@@ -31,9 +32,39 @@
 
         .logoutDiv {
             bottom: 5px;
-            span.ps-menu-label{
+
+            span.ps-menu-label {
                 color: red;
             }
         }
+    }
+}
+
+.outletDiv {
+    background-color: #f8f8f8;
+    height: 92vh !important;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+.componentsTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+.loading-icon {
+    font-size: 2rem;
+    animation: spin 2s infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(720deg);
     }
 }

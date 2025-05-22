@@ -1,7 +1,10 @@
-import React from 'react'
+import ComponentsHeader from '../ComponentsHeader/ComponentsHeader'
 
 export default function AddUser() {
   return (
-    <div>AddUser</div>
+    <>
+      <ComponentsHeader title={"Add New User"} />
+
+    </>
   )
 }

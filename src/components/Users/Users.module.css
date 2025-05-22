@@ -1,0 +1,31 @@
+.users {
+    height: 80vh;
+    overflow-y: auto;
+    margin-bottom: 20px;
+
+    .usersTable {
+        thead {
+
+            tr th {
+                background-color: transparent;
+                color: #ACACAC;
+                position: sticky;
+                top: 0;
+                background-color: #f8f8f8;
+            }
+        }
+
+
+        tbody {
+
+            tr {
+                border-bottom: 10px solid #f8f8f8;
+                border-radius: 8px;
+
+                td {
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}

@@ -9,9 +9,12 @@ export default function Layout() {
             <div>
                 <SidebarMenu />
             </div>
-            <div className='w-100'>
+            <div className='w-100 vh-100 d-flex flex-column '>
                 <Navbar/>
-                <Outlet />
+                <div className='outletDiv container-fluid'>
+                    <Outlet />
+                </div>
+                
             </div>
         </div>
 
