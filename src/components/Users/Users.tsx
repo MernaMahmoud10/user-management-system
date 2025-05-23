@@ -5,7 +5,6 @@ import { MdDelete, MdModeEdit } from 'react-icons/md';
 import { useFetch } from '../../helpers/useFetch';
 import { useEffect, useState } from 'react';
 import type { User } from '../../helpers/interfaces';
-import { useNavigate } from 'react-router-dom';
 import { FiCommand } from 'react-icons/fi';
 
 
