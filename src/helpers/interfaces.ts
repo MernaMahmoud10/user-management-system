@@ -3,7 +3,11 @@ export interface LoginInps {
     password: string
 }
 export interface User {
+    id:number;
     username: string;
+    firstName: string;
+    lastName: string;
+    age: number;
     email: string;
     phone: string;
     birthDate: string;
@@ -11,6 +15,7 @@ export interface User {
 }
 
 export interface AddUserInps {
+    id:number;
     firstName: string;
     lastName: string;
     age: number;
@@ -20,6 +25,5 @@ export interface AddUserInps {
 }
 
 export interface AddUserComponentProps {
-    status: string;
-    title: string;
+    user?: User
 }

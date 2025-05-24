@@ -5,9 +5,12 @@ import 'bootstrap/dist/js/bootstrap.bundle.js'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import './index.css'
 import App from './App.tsx'
+import { UserContextProvider } from './contexts/userContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <UserContextProvider>
+      <App />
+    </UserContextProvider>
   </StrictMode>,
 )
