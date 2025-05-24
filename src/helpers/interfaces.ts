@@ -9,3 +9,17 @@ export interface User {
     birthDate: string;
     image: string;
 }
+
+export interface AddUserInps {
+    firstName: string;
+    lastName: string;
+    age: number;
+    email: string;
+    phone: number;
+    birthDate: string
+}
+
+export interface AddUserComponentProps {
+    status: string;
+    title: string;
+}

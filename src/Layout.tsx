@@ -11,7 +11,7 @@ export default function Layout() {
             </div>
             <div className='w-100 vh-100 d-flex flex-column '>
                 <Navbar/>
-                <div className='outletDiv container-fluid'>
+                <div className='outletDiv'>
                     <Outlet />
                 </div>
                 

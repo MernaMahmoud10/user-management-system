@@ -22,7 +22,7 @@ export default function Users() {
       <ComponentsHeader title={"Users List"} btnTitle={"ADD NEW USER"} path={"/addUser"} />
       
         {users?.length ?
-        <div className={style?.users}>
+        <div className={`container-fluid ${style?.users}`}>
           <Table hover size="sm" className={style?.usersTable}>
             <thead>
               <tr >

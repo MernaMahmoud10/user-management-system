@@ -40,6 +40,10 @@
     }
 }
 
+.componentsHeader {
+    border-bottom: 1px solid #E5E5E5;
+}
+
 .outletDiv {
     background-color: #f8f8f8;
     height: 92vh !important;
