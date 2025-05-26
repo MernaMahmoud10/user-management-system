@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import { NavLink } from 'react-router-dom';
 import { FaRegUser, FaUsers } from 'react-icons/fa';
@@ -44,7 +44,7 @@ export default function SidebarMenu() {
 
                     <MenuItem icon={<FaUsers size={20} />} component={<NavLink to="/users" />}> Users </MenuItem>
                     <MenuItem icon={<FaRegUser size={20} />} component={<NavLink to="/addUser" />}> Add User </MenuItem>
-                    <MenuItem icon={<AiOutlineHome size={20} />} component={<NavLink to="/home" />}> About </MenuItem>
+                    <MenuItem icon={<AiOutlineHome size={20} />} component={<NavLink to="/about" />}> About </MenuItem>
                     <MenuItem icon={<ImProfile size={20} />} component={<NavLink to="/profile" />}> Profile </MenuItem>
                     <MenuItem className='position-absolute logoutDiv' icon={<LuLogOut color='red' size={20} />} component={<NavLink to="/dashboard/profile"/>}> Logout </MenuItem>
 

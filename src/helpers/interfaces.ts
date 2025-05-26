@@ -3,7 +3,7 @@ export interface LoginInps {
     password: string
 }
 export interface User {
-    id:number;
+    id: number;
     username: string;
     firstName: string;
     lastName: string;
@@ -15,7 +15,7 @@ export interface User {
 }
 
 export interface AddUserInps {
-    id:number;
+    id: number;
     firstName: string;
     lastName: string;
     age: number;
@@ -26,4 +26,10 @@ export interface AddUserInps {
 
 export interface AddUserComponentProps {
     user?: User
+}
+
+export interface DeleteModalProps {
+    handleClose: () => void;
+    isModalShown: boolean;
+    user: User | null
 }

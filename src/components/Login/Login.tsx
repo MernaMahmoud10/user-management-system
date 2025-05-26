@@ -4,19 +4,28 @@ import type { LoginInps } from '../../helpers/interfaces'
 import axios, { AxiosError } from 'axios'
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
+import { AuthContext } from '../../contexts/AuthContext';
+import { useContext } from "react"
+
+interface getUserDataInterface {
+    getUserData: () => void
+}
 
 export default function Login() {
     const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm<LoginInps>()
+    const { getUserData } = useContext(AuthContext) as getUserDataInterface
     const onSubmit = async (data: LoginInps) => {
         try {
             const response = await axios.post("https://dummyjson.com/auth/login", data)
             toast.success('You Logged in Successfully!');
-            navigate("/home")
+            navigate("/users")
+            localStorage.setItem("token", response?.data?.accessToken)
+            getUserData()
         }
         catch (error) {
             const err = error as AxiosError
-            toast.error(err ?.message);
+            toast.error(err?.message);
         }
     }
 

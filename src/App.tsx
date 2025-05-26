@@ -2,10 +2,10 @@ import React from 'react'
 import './App.css'
 import Layout from './Layout'
 import Login from './components/Login/Login'
-import Home from './components/Home/Home'
 import AddUser from './components/AddUser/AddUser'
 import Users from './components/Users/Users'
 import Profile from './components/Profile/Profile';
+import About from './components/About/About'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Bounce, ToastContainer } from 'react-toastify'
 
@@ -15,7 +15,7 @@ function App() {
     {
       path: "", element: <Layout />, children: [
         { index: true, element: <Login /> },
-        { path: "home", element: <Home /> },
+        { path: "about", element: <About /> },
         { path: "users", element: <Users /> },
         { path: "addUser", element: <AddUser /> },
         { path: "profile", element: <Profile /> },

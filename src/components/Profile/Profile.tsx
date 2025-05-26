@@ -1,7 +1,9 @@
-import React from 'react'
+import AddUser from '../AddUser/AddUser'
 
 export default function Profile() {
   return (
-    <div>Profile</div>
+    <>
+      <AddUser />
+    </>
   )
 }

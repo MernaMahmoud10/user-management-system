@@ -4,11 +4,11 @@ import type { User } from "../helpers/interfaces";
 interface userContextProviderProps {
     children: ReactNode
 }
-interface CounterContext {
+export interface UserContextInterface {
     user: User | null;
     setUser: Dispatch<SetStateAction<User | null>>
 }
-export const UserContext = createContext<CounterContext | null>(null)
+export const UserContext = createContext<UserContextInterface | null>(null)
 
 
 export function UserContextProvider({ children }: userContextProviderProps) {
