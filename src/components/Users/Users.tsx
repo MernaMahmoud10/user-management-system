@@ -64,14 +64,14 @@ export default function Users() {
             <tbody>
               {users?.map((user: User, index: number) =>
                 <tr key={index}>
-                  <td className='py-3 ps-3'>
+                  <td className='py-1 ps-3'>
                     <img className='w-50' src={user?.image} alt='about us image' />
                   </td>
-                  <td className='py-3'>{user?.firstName}</td>
-                  <td className='py-3'>{user?.lastName}</td>
-                  <td className='py-3'>{user?.phone}</td>
-                  <td className='py-3'>{user?.birthDate}</td>
-                  <td className='py-3'>
+                  <td className='py-1'>{user?.firstName}</td>
+                  <td className='py-1'>{user?.lastName}</td>
+                  <td className='py-1'>{user?.phone}</td>
+                  <td className='py-1'>{user?.birthDate}</td>
+                  <td className='py-1'>
                     <div className='d-flex justify-content-around'>
                       <MdModeEdit size={45} className='text-mustard cursor-pointer pe-3'
                         onClick={() => { goToEdit(user) }} />
