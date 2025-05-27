@@ -5,6 +5,7 @@ import type { UserDataProps } from '../../helpers/interfaces';
 import ComponentsHeader from '../ComponentsHeader/ComponentsHeader';
 
 
+
 export default function Profile() {
   const { userData } = useContext(AuthContext) as UserDataProps
   return (
