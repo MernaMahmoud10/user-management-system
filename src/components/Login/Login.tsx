@@ -1,6 +1,6 @@
 import style from "./Login.module.css"
 import axios, { AxiosError } from 'axios'
-import type {  LoginInps, User } from '../../helpers/interfaces'
+import type { LoginInps, User } from '../../helpers/interfaces'
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { AuthContext } from '../../contexts/AuthContext';
@@ -38,7 +38,7 @@ export default function Login() {
     return (
         <div className='container-fluid'>
             <div className={`row ${style?.LoginPage}`}>
-                <div className={`px-4 rounded-3 py-5 col-md-3 col-12 ${style?.LoginModule}`}>
+                <div className={`px-4 rounded-3 py-5 col-md-6 col-lg-3 ${style?.LoginModule}`}>
                     <h5>User Management System</h5>
                     <div className='py-4 d-flex flex-column align-items-center'>
                         <h6 className={`${style?.signInTitle}`}>Sign In</h6>
