@@ -1,23 +1,25 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Table from 'react-bootstrap/Table';
 import ComponentsHeader from '../ComponentsHeader/ComponentsHeader';
 import style from "./Users.module.css"
+import DeleteModal from '../DeleteModal/DeleteModal';
+import type { User } from '../../helpers/interfaces';
 import { MdDelete, MdModeEdit } from 'react-icons/md';
 import { useFetch } from '../../helpers/useFetch';
 import { useContext, useEffect, useState } from 'react';
-import type { User } from '../../helpers/interfaces';
 import { FiCommand } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import { UserContext, type UserContextInterface } from '../../contexts/userContext';
-import DeleteModal from '../DeleteModal/DeleteModal';
 
-
+interface DataFetchedInterface {
+  users?: User[]
+}
 export default function Users() {
   const [users, setUsers] = useState<User[]>([]);
   const { user, setUser } = useContext(UserContext) as UserContextInterface
   const [isModalShown, setIsModalShown] = useState<boolean>(false);
 
-
-  const { data } = useFetch(" https://dummyjson.com/users")
+  const { data }: { data: DataFetchedInterface } | { data: never[]; } | any = useFetch(" https://dummyjson.com/users")
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export default function Users() {
 
   const goToEdit = (user: User) => {
     setUser(user)
-    navigate("/addUser")
+    navigate("/dashboard/addUser")
   }
 
   const goToDelete = (user: User) => {
@@ -43,7 +45,7 @@ export default function Users() {
 
   return (
     <>
-      <ComponentsHeader title={"Users List"} btnTitle={"ADD NEW USER"} path={"/addUser"} />
+      <ComponentsHeader title={"Users List"} btnTitle={"ADD NEW USER"} path={"/dashboard/addUser"} />
 
       {users?.length ?
         <div className={`container-fluid ${style?.users}`}>
@@ -63,7 +65,7 @@ export default function Users() {
               {users?.map((user: User, index: number) =>
                 <tr key={index}>
                   <td className='py-3 ps-3'>
-                    <img className='w-25' src={user?.image} />
+                    <img className='w-25' src={user?.image} alt='about us image' />
                   </td>
                   <td className='py-3'>{user?.username}</td>
                   <td className='py-3'>{user?.email}</td>

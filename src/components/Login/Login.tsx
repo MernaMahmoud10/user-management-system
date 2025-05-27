@@ -1,25 +1,26 @@
 import style from "./Login.module.css"
-import { useForm } from 'react-hook-form'
-import type { LoginInps } from '../../helpers/interfaces'
 import axios, { AxiosError } from 'axios'
+import type {  LoginInps, User } from '../../helpers/interfaces'
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 import { AuthContext } from '../../contexts/AuthContext';
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
+import { useForm } from 'react-hook-form'
 
-interface getUserDataInterface {
-    getUserData: () => void
+export interface interfaceLogin {
+    getUserData: () => void;
+    setUserData: React.Dispatch<React.SetStateAction<User | null>>
 }
 
 export default function Login() {
     const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm<LoginInps>()
-    const { getUserData } = useContext(AuthContext) as getUserDataInterface
+    const { getUserData, setUserData } = useContext(AuthContext) as interfaceLogin
     const onSubmit = async (data: LoginInps) => {
         try {
             const response = await axios.post("https://dummyjson.com/auth/login", data)
             toast.success('You Logged in Successfully!');
-            navigate("/users")
+            navigate("/dashboard/users")
             localStorage.setItem("token", response?.data?.accessToken)
             getUserData()
         }
@@ -28,6 +29,11 @@ export default function Login() {
             toast.error(err?.message);
         }
     }
+
+    useEffect(() => {
+        localStorage?.removeItem("token")
+        setUserData(null)
+    }, []);
 
     return (
         <div className='container-fluid'>

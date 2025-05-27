@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export interface LoginInps {
     username: string;
     password: string
@@ -32,4 +34,21 @@ export interface DeleteModalProps {
     handleClose: () => void;
     isModalShown: boolean;
     user: User | null
+}
+export interface UserDataProps {
+    userData: User | null
+}
+
+export interface IUserData {
+    userData: User | null;
+    setUserData: React.Dispatch<React.SetStateAction<User | null>>
+}
+
+export interface ComponentsHeaderProps {
+    title: string;
+    btnTitle?: string
+    path?: string
+}
+export interface ContextProviderProps {
+    children: ReactNode
 }

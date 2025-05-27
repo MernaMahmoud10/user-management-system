@@ -1,12 +1,8 @@
 import { useNavigate } from "react-router-dom";
+import type { ComponentsHeaderProps } from "../../helpers/interfaces";
 
-interface Props {
-    title: string;
-    btnTitle?: string
-    path?: string
-}
 
-export default function ComponentsHeader({ title, btnTitle, path }: Props) {
+export default function ComponentsHeader({ title, btnTitle, path }: ComponentsHeaderProps) {
     const navigate = useNavigate()
 
     return (

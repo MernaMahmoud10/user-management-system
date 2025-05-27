@@ -1,24 +1,31 @@
-import React from 'react'
 import './App.css'
 import Layout from './Layout'
+import AuthLayout from './AuthLayout'
 import Login from './components/Login/Login'
 import AddUser from './components/AddUser/AddUser'
 import Users from './components/Users/Users'
 import Profile from './components/Profile/Profile';
+import ProtectedRouting from './components/ProtectedRouting/ProtectedRouting'
 import About from './components/About/About'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Bounce, ToastContainer } from 'react-toastify'
 
 function App() {
+  
+
+ 
 
   const routes = createBrowserRouter([
     {
-      path: "", element: <Layout />, children: [
-        { index: true, element: <Login /> },
-        { path: "about", element: <About /> },
-        { path: "users", element: <Users /> },
-        { path: "addUser", element: <AddUser /> },
-        { path: "profile", element: <Profile /> },
+      path: "", element: <AuthLayout />, children: [
+        { index: true, element: <Login /> }]
+    },
+    {
+      path: "/dashboard", element: <Layout />, children: [
+        { path: "/dashboard/about", element: <ProtectedRouting><About /> </ProtectedRouting>},
+        { path: "/dashboard/users", element:<ProtectedRouting> <Users /> </ProtectedRouting> },
+        { path: "/dashboard/addUser", element: <ProtectedRouting><AddUser /> </ProtectedRouting>},
+        { path: "/dashboard/profile", element: <ProtectedRouting><Profile /> </ProtectedRouting> },
       ]
     }
   ])

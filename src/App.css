@@ -1,11 +1,9 @@
 .sidebarContainer {
     background-color: #F2EAE1;
     position: relative;
-
+    box-shadow: 0px 5px 5px grey;
 
     .ps-sidebar-container {
-
-
         .SidebarHeader {
             font-size: 1.2rem;
             font-weight: 700;
@@ -70,5 +68,33 @@
 
     100% {
         transform: rotate(720deg);
+    }
+}
+
+.formBox {
+    background-color: #fff;
+    border-radius: 12px;
+    margin: 50px 80px;
+    @media screen and (max-width:700px){
+        overflow-y: auto;
+    }
+
+    form {
+        label {
+            color: #726d6d;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding-bottom: 8px;
+        }
+
+        input.form-control {
+            background-color: #F8F8F8 !important;
+
+            &::placeholder {
+                color: #6C6C6C;
+                font-family: 400;
+                font-size: 0.7rem;
+            }
+        }
     }
 }

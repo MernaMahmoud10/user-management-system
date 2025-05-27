@@ -1,17 +1,15 @@
-import { createContext, useState, type Dispatch, type ReactNode, type SetStateAction } from "react";
-import type { User } from "../helpers/interfaces";
+import { createContext, useState, type Dispatch, type SetStateAction } from "react";
+import type { ContextProviderProps, User } from "../helpers/interfaces";
 
-interface userContextProviderProps {
-    children: ReactNode
-}
 export interface UserContextInterface {
     user: User | null;
     setUser: Dispatch<SetStateAction<User | null>>
 }
+
 export const UserContext = createContext<UserContextInterface | null>(null)
 
 
-export function UserContextProvider({ children }: userContextProviderProps) {
+export function UserContextProvider({ children }: ContextProviderProps) {
     const [user, setUser] = useState<User | null>(null)
     return (
         <UserContext.Provider value={{ user, setUser }}>
