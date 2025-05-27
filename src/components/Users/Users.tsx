@@ -73,9 +73,9 @@ export default function Users() {
                   <td className='py-3'>{user?.birthDate}</td>
                   <td className='py-3'>
                     <div className='d-flex justify-content-around'>
-                      <MdModeEdit size={30} className='text-mustard cursor-pointer pe-3'
+                      <MdModeEdit size={45} className='text-mustard cursor-pointer pe-3'
                         onClick={() => { goToEdit(user) }} />
-                      <MdDelete size={30} className='text-danger cursor-pointer'
+                      <MdDelete size={45} className='text-danger cursor-pointer'
                         onClick={() => goToDelete(user)} />
 
                     </div>
