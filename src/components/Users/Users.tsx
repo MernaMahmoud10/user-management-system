@@ -53,8 +53,8 @@ export default function Users() {
             <thead>
               <tr >
                 <th className='py-3 ps-3'>Symbol</th>
-                <th className='py-3'>Name</th>
-                <th className='py-3'>Email</th>
+                <th className='py-3'>First Name</th>
+                <th className='py-3'>Last Name</th>
                 <th className='py-3'>Phone</th>
                 <th className='py-3'>Birth date</th>
                 <th className='py-3'></th>
@@ -65,15 +65,15 @@ export default function Users() {
               {users?.map((user: User, index: number) =>
                 <tr key={index}>
                   <td className='py-3 ps-3'>
-                    <img className='w-25' src={user?.image} alt='about us image' />
+                    <img className='w-50' src={user?.image} alt='about us image' />
                   </td>
-                  <td className='py-3'>{user?.username}</td>
-                  <td className='py-3'>{user?.email}</td>
+                  <td className='py-3'>{user?.firstName}</td>
+                  <td className='py-3'>{user?.lastName}</td>
                   <td className='py-3'>{user?.phone}</td>
                   <td className='py-3'>{user?.birthDate}</td>
                   <td className='py-3'>
                     <div className='d-flex justify-content-around'>
-                      <MdModeEdit size={30} className='text-mustard cursor-pointer'
+                      <MdModeEdit size={30} className='text-mustard cursor-pointer pe-3'
                         onClick={() => { goToEdit(user) }} />
                       <MdDelete size={30} className='text-danger cursor-pointer'
                         onClick={() => goToDelete(user)} />
