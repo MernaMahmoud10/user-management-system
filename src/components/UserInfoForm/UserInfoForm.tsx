@@ -100,7 +100,7 @@ export default function UserInfoForm({ user, status, userId }: Iprops) {
                 </div>
                 {status !== "profile" &&
                     <div className='d-flex justify-content-center mb-4'>
-                        <button className='bg-mustard text-white py-2 w-25 border-0 rounded-2 px-5' type='submit'>{status == "add" ? "Save" : "Save Changes"}</button>
+                        <button className='bg-mustard text-white py-2 border-0 rounded-2 px-5' type='submit'>{status == "add" ? "Save" : "Save Changes"}</button>
                     </div>}
             </form>
         </>

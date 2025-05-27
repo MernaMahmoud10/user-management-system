@@ -75,7 +75,8 @@
     background-color: #fff;
     border-radius: 12px;
     margin: 50px 80px;
-    @media screen and (max-width:700px){
+
+    @media screen and (max-width:700px) {
         overflow-y: auto;
     }
 
@@ -94,6 +95,15 @@
                 color: #6C6C6C;
                 font-family: 400;
                 font-size: 0.7rem;
+            }
+        }
+
+        button.bg-mustard {
+            width: 30%;
+
+            @media screen and (max-width:992px) {
+
+                width: 70%;
             }
         }
     }
