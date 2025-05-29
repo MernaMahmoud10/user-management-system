@@ -33,7 +33,7 @@ export interface AddUserComponentProps {
 export interface DeleteModalProps {
     handleClose: () => void;
     isModalShown: boolean;
-    user: User | null
+    id: number|undefined
 }
 export interface UserDataProps {
     userData: User | null
@@ -51,4 +51,7 @@ export interface ComponentsHeaderProps {
 }
 export interface ContextProviderProps {
     children: ReactNode
+}
+export interface DataFetchedInterface {
+    users?: User[]
 }

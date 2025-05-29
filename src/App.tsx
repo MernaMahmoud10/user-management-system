@@ -25,6 +25,7 @@ function App() {
         { path: "/dashboard/about", element: <ProtectedRouting><About /> </ProtectedRouting>},
         { path: "/dashboard/users", element:<ProtectedRouting> <Users /> </ProtectedRouting> },
         { path: "/dashboard/addUser", element: <ProtectedRouting><AddUser /> </ProtectedRouting>},
+        { path: "/dashboard/addUser/:id", element: <ProtectedRouting><AddUser /> </ProtectedRouting>},
         { path: "/dashboard/profile", element: <ProtectedRouting><Profile /> </ProtectedRouting> },
       ]
     }

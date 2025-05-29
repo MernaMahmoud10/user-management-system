@@ -3,23 +3,20 @@ import Table from 'react-bootstrap/Table';
 import ComponentsHeader from '../ComponentsHeader/ComponentsHeader';
 import style from "./Users.module.css"
 import DeleteModal from '../DeleteModal/DeleteModal';
-import type { User } from '../../helpers/interfaces';
+import type { DataFetchedInterface, User } from '../../helpers/interfaces';
 import { MdDelete, MdModeEdit } from 'react-icons/md';
 import { useFetch } from '../../helpers/useFetch';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FiCommand } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import { UserContext, type UserContextInterface } from '../../contexts/userContext';
 
-interface DataFetchedInterface {
-  users?: User[]
-}
+
 export default function Users() {
   const [users, setUsers] = useState<User[]>([]);
-  const { user, setUser } = useContext(UserContext) as UserContextInterface
   const [isModalShown, setIsModalShown] = useState<boolean>(false);
+  const [userId, setuserId] = useState<number>();
 
-  const { data }: { data: DataFetchedInterface } | { data: never[]; } | any = useFetch(" https://dummyjson.com/users")
+  const { data }: { data: DataFetchedInterface } | { data: never[]; } | any = useFetch("https://dummyjson.com/users")
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -27,20 +24,18 @@ export default function Users() {
       setUsers(data?.users)
   }, [data]);
 
-  const goToEdit = (user: User) => {
-    setUser(user)
-    navigate("/dashboard/addUser")
+  const goToEdit = (id: number) => {
+    navigate(`/dashboard/addUser/${id}`)
   }
 
-  const goToDelete = (user: User) => {
-    setUser(user)
+  const goToDelete = (id: number|undefined) => {
+    setuserId(id)
     setIsModalShown(true)
 
   }
 
   const handleClose = () => {
     setIsModalShown(false);
-    setUser(null)
   }
 
   return (
@@ -74,9 +69,9 @@ export default function Users() {
                   <td className='py-1'>
                     <div className='d-flex justify-content-around'>
                       <MdModeEdit size={45} className='text-mustard cursor-pointer pe-3'
-                        onClick={() => { goToEdit(user) }} />
+                        onClick={() => { goToEdit(user?.id) }} />
                       <MdDelete size={45} className='text-danger cursor-pointer'
-                        onClick={() => goToDelete(user)} />
+                        onClick={() => goToDelete(user?.id)} />
 
                     </div>
                   </td>
@@ -90,7 +85,7 @@ export default function Users() {
         <div className='d-flex align-items-center justify-center h-100'>
           <FiCommand className="loading-icon text-mustard w-100 " />
         </div>}
-      {isModalShown && <DeleteModal isModalShown={isModalShown} handleClose={handleClose} user={user} />}
+      {isModalShown && <DeleteModal isModalShown={isModalShown} handleClose={handleClose} id={userId} />}
     </>
   )
 }

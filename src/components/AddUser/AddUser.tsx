@@ -1,29 +1,29 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import ComponentsHeader from '../ComponentsHeader/ComponentsHeader'
 import UserInfoForm from "../UserInfoForm/UserInfoForm"
-import { useContext, useEffect, useState } from "react"
-import { UserContext, type UserContextInterface } from "../../contexts/userContext"
+import type { DataFetchedInterface, User } from '../../helpers/interfaces'
+import { useEffect, useState } from "react"
+import { useParams } from 'react-router-dom'
+import { useFetch } from '../../helpers/useFetch'
 
 export default function AddUser() {
-  const { user, setUser } = useContext(UserContext) as UserContextInterface
+  const [userToEdit, setUserToEdit] = useState<User | null>(null)
   const [status, setstatus] = useState<string>("add");
-  const [userId, setuserId] = useState<number>();
-
+  const { id } = useParams()
+  const { data }: { data: DataFetchedInterface } | { data: never[]; } | any = useFetch(`https://dummyjson.com/users/${id}`)
 
   useEffect(() => {
-    if (user) {
+    if (id && data) {
       setstatus("edit")
-      setuserId(user?.id)
+      setUserToEdit(data)
     }
-    return () => {
-      setUser(null)
-    };
-  }, [user]);
+  }, [id, data]);
 
   return (
     <>
       <ComponentsHeader title={status == "edit" ? "Update User" : "Add New User"} />
       <div className={`py-4 px-5 formBox`}>
-        <UserInfoForm user={user} status={status} userId={userId} />
+        <UserInfoForm user={userToEdit} status={status} userId={id} />
 
       </div>
 

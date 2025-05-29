@@ -3,11 +3,11 @@ import type { DeleteModalProps } from "../../helpers/interfaces";
 import { Button, Modal } from "react-bootstrap";
 import { toast } from "react-toastify";
 
-export default function DeleteModal({ isModalShown, handleClose, user }: DeleteModalProps) {
+export default function DeleteModal({ isModalShown, handleClose, id }: DeleteModalProps) {
     
     const deleteUser = async () => {
         try {
-            await axios.delete(`https://dummyjson.com/users/${user?.id}`)
+            await axios.delete(`https://dummyjson.com/users/${id}`)
             toast.success('User Deleted Successfully!');
             handleClose()
         }

@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios'
-import type { AddUserInps, User } from '../../helpers/interfaces'
+import type {  User } from '../../helpers/interfaces'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom'
@@ -8,16 +8,14 @@ import { useEffect, useState } from 'react'
 interface Iprops {
     user: User | null;
     status: string;
-    userId?: number
+    userId?: string;
 }
 export default function UserInfoForm({ user, status, userId }: Iprops) {
-    const { register, handleSubmit, formState: { errors } } = useForm<AddUserInps>()
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<User>()
     const [isreadOnly, setIsreadOnly] = useState<boolean>(false);
-
-
     const navigate = useNavigate()
 
-    const onSubmit = async (data: AddUserInps) => {
+    const onSubmit = async (data: User) => {
         if (status === "add")
             try {
                 await axios.post("https://dummyjson.com/users/add", data)
@@ -29,6 +27,7 @@ export default function UserInfoForm({ user, status, userId }: Iprops) {
                 toast.error(err?.message);
             }
         else if (status === "edit" && userId) {
+            console.log(data)
 
             try {
                 await axios.put(`https://dummyjson.com/users/${userId}`, data)
@@ -50,6 +49,12 @@ export default function UserInfoForm({ user, status, userId }: Iprops) {
             setIsreadOnly(false)
         }
     }, [status]);
+
+    useEffect(() => {
+        if (user)
+            reset(user)
+    }, [reset,user]);
+
 
     return (
         <>
